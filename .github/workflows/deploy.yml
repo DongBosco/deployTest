@@ -17,7 +17,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }} # EC2의 Key 페어
           script_stop: true # 아래 script 중 실패하는 명령이 하나라도 있으면 실패로 처리
           script: |
-            cd /home/2024devSpring
+            cd /home/spring/deployTest
             git config --global --add safe.directory /home/spring/deployTest
             sudo git pull origin master
             sudo ./gradlew bootWar
