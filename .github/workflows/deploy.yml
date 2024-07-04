@@ -1,0 +1,17 @@
+name: Deploy To EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH로 EC2에 접속하기
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }} # EC2의 주소
+          username: ${{ secrets.USERNAME }} # EC2 접속 ubuntu
+          key: ${{ secrets.PRIVATE_KEY }} # EC2의 Key 페어
